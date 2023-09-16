@@ -67,8 +67,8 @@
 }
 
 .input input {
-  font-family: Montserrat, Roboto, sans-serif;
-  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 16px;
   line-height: 14px;
   color: var(--grey);
   background: none;
@@ -114,20 +114,20 @@
 
 .count {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   background: var(--violet);
   right: -2px;
   bottom: -2px;
   border-radius: 50%;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 14px;
   color: var(--light);
   text-align: center;
-  line-height: 16px;
+  line-height:20px;
 }
 
-.box {
+/* .box {
   z-index: 9;
   top: 120%;
   position: absolute;
@@ -141,7 +141,7 @@
   row-gap: 8px;
   background: var(--dark-sea);
   border-radius: 8px;
-}
+} */
 
 .box::-webkit-scrollbar {
   display: none;
