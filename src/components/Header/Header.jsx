@@ -5,6 +5,9 @@ import styles from '../../styles/Header.module.css'
 import { ROUTES } from '../../utils/routes'
 import logo from '../../images/logo.png'
 import avatar from '../../images/avatar.jpg'
+import search from '../../images/search.svg'
+import heart from '../../images/heart.svg'
+import cart from '../../images/cart.svg'
 
 const Header = () => {
   return (
@@ -24,7 +27,7 @@ const Header = () => {
 
         <form lassName={styles.form}>
           <div className={styles.icon}>
-            {/* icon here! search*/}
+            <img src={search} alt="search" />
           </div>
           <div className={styles.input}>
             <input 
@@ -42,10 +45,10 @@ const Header = () => {
 
         <div className={styles.account}>
           <Link className={styles.favourites}to={ROUTES.HOME}>
-            {/* icon here! heart */}
+            <img src={heart} alt="heart" />
           </Link>
           <Link className={styles.cart}to={ROUTES.CART}>
-            {/* icon here! shop cart*/}
+            <img src={cart} alt="cart" />
             <span className={styles.count}>2</span>
           </Link>
         </div>

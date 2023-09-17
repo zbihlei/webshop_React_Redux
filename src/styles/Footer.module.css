@@ -20,7 +20,7 @@
   line-height: 15px;
 }
 
-.rights a {
+.rights span {
   color: var(--violet);
 }
 
