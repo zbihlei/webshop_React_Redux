@@ -3,20 +3,25 @@ import {NavLink} from 'react-router-dom'
 
 
 import styles from '../../styles/Sidebar.module.css'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
+
+import {useGetCategoriesQuery} from '../../features/api/apiSlice'
 
 
 
 const Sidebar = () => {
 
-  const {list} = useSelector(({categories}) => categories);
+  // if we use asyncThunk then 
+  // const {list} = useSelector(({categories}) => categories);
+  
+  const {data: categories=[]} = useGetCategoriesQuery();
 
   return (
     <section className={styles.sidebar}>
       <div className={styles.title}>Categories</div>
       <nav>
         <ul className={styles.menu}>
-          {list.map(({id, name})=>(
+          {categories.map(({id, name})=>(
             <li key={id}>
               <NavLink
                 className={({isActive })=> 

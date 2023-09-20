@@ -25,7 +25,7 @@ const Header = () => {
           <div className={styles.username}>Guest</div>
         </div>
 
-        <form lassName={styles.form}>
+        <form className={styles.form}>
           <div className={styles.icon}>
             <img src={search} alt="search" />
           </div>
@@ -40,7 +40,7 @@ const Header = () => {
               />
           </div>
 
-          {/* <div className={styles.box}></div> */}
+          <div className={styles.box}></div>
         </form>
 
         <div className={styles.account}>
