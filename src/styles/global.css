@@ -75,8 +75,11 @@ li {
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template: "sidebar poster"
+                  "products products"
+                  "categories  categories"
+                  "filtered filtered";
   gap: 20px;
 }
 
@@ -86,7 +89,7 @@ section {
 }
 
 button {
-  background: var(--violet-dark);
+  background: var(--violet);
   border-radius: 6px;
   padding: 9px 20px;
   font-weight: 600;

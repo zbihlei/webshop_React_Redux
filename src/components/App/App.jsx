@@ -7,17 +7,19 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Sidebar from '../Sidebar/Sidebar'
 
-// import { getCategories } from '../../features/categories/categoriesSlice';
 
+
+// import { getCategories } from '../../features/categories/categoriesSlice';
+// import {getProducts} from '../../features/products/productsSlice'
 
 const App = () => {
 
-  // if we use asyncThunk then
 
+  // if we use asyncThunk then use dispatch in useEffect
   // const dispatch = useDispatch();
-
   // useEffect(()=>{
   //   dispatch(getCategories());
+  //   dispatch(getProducts());
   // },[dispatch])
 
   return (

@@ -1,9 +1,9 @@
 .sidebar {
-  width: 304px;
   padding: 24px;
   height: 423px;
-  display: flex;
-  flex-direction: column;
+  display: flex; 
+  flex-direction: column; 
+  grid-area: sidebar;
 }
 
 .title {
@@ -15,12 +15,12 @@
   margin-top: 32px;
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
+  row-gap: 20px;
 }
 
 .link {
   color: var(--dark-sea);
-  font-size: 14px;
+  font-size: 20px;
   line-height: 17px;
   text-transform: capitalize;
 }
