@@ -1,7 +1,7 @@
 .product {
   display: flex;
   flex-grow: 1;
-  max-width: calc(100% - 324px);
+  /* max-width: calc(100% - 324px); */
   padding: 24px;
   column-gap: 32px;
   color: var(--light);
@@ -43,7 +43,7 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: 22px;
   line-height: 22px;
   font-weight: 500;
 }
@@ -96,7 +96,7 @@
 
 .description {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 15px;
   color: var(--grey);
 }
@@ -104,7 +104,7 @@
 .actions {
   margin-top: 20px;
   display: flex;
-  column-gap: 10px;
+  column-gap: 20px;
 }
 
 .favourite {
@@ -120,7 +120,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: 15px;
   line-height: 12px;
   color: var(--dark-sea);
   margin-top: auto;
