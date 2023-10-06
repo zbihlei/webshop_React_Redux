@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import {useDispatch, useSelector} from 'react-redux';
@@ -12,11 +12,19 @@ import avatar from '../../images/avatar.jpg'
 import search from '../../images/search.svg'
 import heart from '../../images/heart.svg'
 import cart from '../../images/cart.svg'
+import { useEffect } from 'react';
 
 const Header = () => {
 
   const dispatch = useDispatch();
   const { currentUser }= useSelector(({user})=>user);
+  const [values, setValues]= useState({name: 'Guest', avatar: avatar});
+
+
+  useEffect(()=>{
+    if(!currentUser) return;
+    setValues(currentUser);
+  },[currentUser])
 
   const handleClick =()=>{
     if(!currentUser) dispatch(toggleForm(true));
@@ -33,8 +41,8 @@ const Header = () => {
       <div className={styles.info}>
         <div className={styles.user} onClick={handleClick}>
 
-          <div className={styles.avatar} style={{backgroundImage: `url(${avatar})`}}/>
-          <div className={styles.username}>Guest</div>
+          <div className={styles.avatar} style={{backgroundImage: `url(${values.avatar})`}}/>
+          <div className={styles.username}>{values.name}</div>
         </div>
 
         <form className={styles.form}>

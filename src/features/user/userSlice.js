@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios";
 import { BASE_URL } from "../../utils/constants";
 
-
+// m@mail.com
+// 12345
 
 export const createUser = createAsyncThunk(
     'users/createUser', 
@@ -11,7 +12,22 @@ export const createUser = createAsyncThunk(
             const res = await axios.post(`${BASE_URL}/users`, payload);
             return res.data;
 
-    })
+    });
+
+    export const loginUser = createAsyncThunk(
+        'users/loginUser', 
+        async(payload, thunkAPI) =>{
+    
+                const res = await axios.post(`${BASE_URL}/auth/login`, payload);
+                const login = await axios(`${BASE_URL}/auth/profile`, {
+                    headers: {
+                        "Authorization": `Bearer ${res.data.access_token}`,
+                    },
+                });
+                return login.data;
+    
+        })
+    
 
 
 const userSlice = createSlice({
@@ -59,23 +75,23 @@ const userSlice = createSlice({
         },
         toggleForm: (state, {payload}) => {
             state.showForm = payload;
+        },
+        toggleFormType: (state, {payload}) => {
+            state.formType = payload;
         }
     },
 
     extraReducers: (builder)=>{
-        // builder.addCase(getProducts.pending, (state)=>{
-        //     state.isLoading = true;
-        // });
+     
         builder.addCase(createUser.fulfilled, (state, {payload})=>{
             state.currentUser = payload;
         });
-        // builder.addCase(getProducts.rejected, (state)=>{
-        //     state.isLoading = false;
-        //     console.log('error!');
-        // });
+        builder.addCase(loginUser.fulfilled, (state, {payload})=>{
+            state.currentUser = payload;
+        });
     }
 
 });
-export const {addItemToCart, addItemToFavorite, toggleForm} = userSlice.actions;
+export const {addItemToCart, addItemToFavorite, toggleForm, toggleFormType} = userSlice.actions;
 
 export default userSlice.reducer;
