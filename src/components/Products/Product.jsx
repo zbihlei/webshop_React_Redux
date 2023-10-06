@@ -4,6 +4,7 @@ import styles from '../../styles/Product.module.css';
 import {ROUTES} from '../../utils/routes';
 
 import { addItemToCart } from '../../features/user/userSlice';
+import { addItemToFavorite } from '../../features/user/userSlice';
 
 import { useEffect } from 'react';
 import {useDispatch} from 'react-redux';
@@ -24,6 +25,10 @@ const Product = (item) => {
 
     const addToCart = ()=>{
         dispatch(addItemToCart(item))
+    }
+
+    const addToFav = ()=>{
+        dispatch(addItemToFavorite(item))
     }
 
   return (
@@ -68,7 +73,7 @@ const Product = (item) => {
             <p className={styles.description}>{description}</p>
             <div className={styles.actions}>
                 <button className={styles.add} disabled={!currentSize} onClick={addToCart}>Add to cart</button>
-                <button className={styles.favourite}>Add to favourite</button>
+                <button className={styles.favourite} onClick={addToFav}>Add to favourite</button>
             </div>
             <div className={styles.bottom}>
                 <div className={styles.purchase}>Some static information</div>
