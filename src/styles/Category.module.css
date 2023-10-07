@@ -1,14 +1,19 @@
 .wrapper {
+  margin-top: -10px;
   width: 100%;
   padding: 24px;
-  flex-grow: 1;
+  grid-area: categories;
+}
+h2{
+  padding-top: 10px;
 }
 
 .filters {
   display: flex;
+  justify-content: center;
   gap: 20px;
   width: 100%;
-  margin-top: 24px;
+  margin: 24px 0;
 }
 
 .filter {
@@ -18,7 +23,7 @@
   width: max-content;
   display: flex;
   align-items: center;
-  min-width: 225px;
+
 }
 
 .full {

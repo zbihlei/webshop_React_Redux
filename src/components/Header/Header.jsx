@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux';
 
 import { toggleForm } from '../../features/user/userSlice';
+import { useGetSearchQuery } from '../../features/api/apiSlice';
 
 import styles from '../../styles/Header.module.css'
 import { ROUTES } from '../../utils/routes'
@@ -19,13 +20,21 @@ const Header = () => {
   const dispatch = useDispatch();
   const { currentUser }= useSelector(({user})=>user);
   const [values, setValues]= useState({name: 'Guest', avatar: avatar});
-
-
+  const [searchValue, setSearchValue] = useState('');
+  
+  
   useEffect(()=>{
     if(!currentUser) return;
     setValues(currentUser);
+
   },[currentUser])
 
+  const {data:searchingData, isLoading} = useGetSearchQuery({title: searchValue});
+
+
+  const handleSearch =({target : {value}})=>{
+    setSearchValue(value);
+  }
   const handleClick =()=>{
     if(!currentUser) dispatch(toggleForm(true));
   }
@@ -55,12 +64,27 @@ const Header = () => {
              autoComplete='off'
              name="search"
              placeholder='type your text'
-             value=""
-             onChange={()=>{}}
+             value={searchValue}
+             onChange={handleSearch}
               />
           </div>
 
-          {/* <div className={styles.box}></div> */}
+         {searchValue && 
+         <div className={styles.box}>
+            {isLoading ? 'Loading' : !searchingData.length ? 'No Results' : (
+              searchingData.map(({title, images, id})=> {
+                return (
+                  <Link   key={id}
+                          to={`/products/${id}`} 
+                          className={styles.item}
+                          onClick={()=>setSearchValue('')}>
+                    <div className={styles.image} style={{backgroundImage: `url(${images[0]})`}}/>
+                    <div className={styles.title}>{title}</div>
+                  </Link>
+                )
+              })
+            )}
+          </div>}
         </form>
 
         <div className={styles.account}>
