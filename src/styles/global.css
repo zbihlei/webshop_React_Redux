@@ -75,12 +75,9 @@ li {
 }
 
 .container {
-  display: grid;
-  grid-template: "sidebar poster "
-                  "products products "
-                  "categories  categories " 
-                  "filtered filtered ";
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 21px;
 }
 
 section {

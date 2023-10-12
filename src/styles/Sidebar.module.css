@@ -3,8 +3,6 @@
   height: 423px;
   display: flex; 
   flex-direction: column; 
-  grid-area: sidebar;
-
 }
 
 .title {
@@ -21,7 +19,7 @@
 
 .link {
   color: var(--dark-sea);
-  font-size: 20px;
+  font-size: 18px;
   line-height: 17px;
   text-transform: capitalize;
 }

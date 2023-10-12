@@ -1,8 +1,6 @@
 .wrapper {
-  margin-top: -10px;
   width: 100%;
   padding: 24px;
-  grid-area: categories;
 }
 h2{
   padding-top: 10px;
@@ -10,40 +8,8 @@ h2{
   text-transform: uppercase;
 }
 
-/* .filters {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  margin: 24px 0;
-}
-
-.filter {
-  background: var(--bg);
-  border-radius: 8px;
-  padding: 12px 24px;
-  width: max-content;
-  display: flex;
-  align-items: center;
-
-} */
-
 .full {
   width: 100%;
-}
-
-.filter input {
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-}
-
-.filter span {
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-  color: var(--dark-sea);
-  text-align: right;
 }
 
 .more {

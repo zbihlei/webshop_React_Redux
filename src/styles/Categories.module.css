@@ -1,6 +1,6 @@
 .section {
   padding: 22px;
-  grid-area: categories;
+  width: 100%;
 }
 
 .list {
