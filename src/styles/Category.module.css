@@ -11,6 +11,11 @@ h2{
 .full {
   width: 100%;
 }
+.moreBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .more {
   margin: 32px auto 0 auto;

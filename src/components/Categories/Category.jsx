@@ -10,17 +10,28 @@ import styles from '../../styles/Category.module.css'
 const Category = () => {
 
     const {id} = useParams();
-  
+
     const {data: list} = useGetCategoriesQuery();
     const [cat, setCat] = useState('');
     const {data, isLoading, isSuccess} = useGetProductsByCategoryIdQuery(id);
+
+    const defParams ={
+        offset: 5,
+        limit: 5
+    }
+    const [params, setParams] = useState(defParams);
+
+    const addMore =()=>{
+        setParams({...params , offset: params.offset + params.limit})
+    }
 
     useEffect(()=>{
         if(!id || !list.length) return;
 
         const {name} = list.find((item)=> item.id === id*1);
         setCat(name);
-    },[list, id])
+    },[list, id, isLoading, data])
+
 
   return (
     <section className={styles.wrapper}>
@@ -37,10 +48,16 @@ const Category = () => {
                 <SingleCategories title=''
                           products={data} 
                           style={{padding : 0}} 
-                          amount ={data.length}/>
+                          amount ={params.offset}/>
    
             )}
+
+            <div className={styles.moreBtn}>
+                <button className={styles.more} onClick={()=>addMore()}>See More</button>
+            </div>
+            <button style ={{backgroundColor: "#797082a5"}} onClick={()=>window.scrollTo(0, 100)}>To top</button>
     </section>
+    
   )
 }
 
