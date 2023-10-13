@@ -1,5 +1,6 @@
 .cart {
-  width: calc(100% - 324px);
+  /* width: calc(100% - 191px); */
+  width: 85%;
   padding: 24px 32px;
   display: flex;
   flex-direction: column;
