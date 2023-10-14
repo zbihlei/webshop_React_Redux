@@ -1,9 +1,9 @@
 .cart {
   /* width: calc(100% - 191px); */
-  width: 85%;
   padding: 24px 32px;
   display: flex;
   flex-direction: column;
+  width: 955px;
 }
 
 .empty {
@@ -135,4 +135,12 @@
 
 .total span {
   color: #fff;
+}
+
+.add{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  text-align: center;
 }

@@ -88,7 +88,7 @@ const Header = () => {
         </form>
 
         <div className={styles.account}>
-          <Link className={styles.favourites}to={ROUTES.HOME}>
+          <Link className={styles.favourites}to={ROUTES.FAVORITE}>
             <img src={heart} alt="heart" />
           </Link>
           <Link className={styles.cart}to={ROUTES.CART}>

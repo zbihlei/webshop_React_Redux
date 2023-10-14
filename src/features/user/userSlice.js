@@ -74,14 +74,17 @@ const userSlice = createSlice({
             } else newFav.push({...payload, quantity: 1});
            
             state.favorite = newFav;
-            console.log(state.favorite);
+        },
+        removeItemFromFavorite : (state, {payload})=>{
+            state.favorite = state.favorite.filter(({id})=>id !== payload)
         },
         toggleForm: (state, {payload}) => {
             state.showForm = payload;
         },
         toggleFormType: (state, {payload}) => {
             state.formType = payload;
-        }
+        },
+       
     },
 
     extraReducers: (builder)=>{
@@ -95,6 +98,6 @@ const userSlice = createSlice({
     }
 
 });
-export const {addItemToCart, addItemToFavorite, toggleForm, toggleFormType, removeItemFromCart} = userSlice.actions;
+export const {addItemToCart, addItemToFavorite, removeItemFromFavorite, toggleForm, toggleFormType, removeItemFromCart} = userSlice.actions;
 
 export default userSlice.reducer;
